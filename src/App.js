@@ -7,11 +7,10 @@ import {
 
 import NavBar from "./components/NavBar";
 import AppMovies from "./containers/AppMovies";
-import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <NavBar />
         <Switch>
