@@ -2,9 +2,9 @@ import { takeLatest, call, put } from "redux-saga/effects";
 import { getMovies, setMovies } from "./slice";
 import moviesService from "../../services/MoviesService";
 
-function* handleGetMovies() {
+function* handleGetMovies(action) {
   try {
-    const movies = yield call(moviesService.getMovies);
+    const movies = yield call(moviesService.getMovies, action.payload);
     yield put(setMovies(movies));
   } catch (error) {
     console.error(error);
