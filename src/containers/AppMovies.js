@@ -16,11 +16,15 @@ export default function AppMovies() {
     <div>
       <h1>App movies</h1>
 
-      <ul>
-        {movies.data.map((movie) => (
-          <MovieRow key={movie.id} movie={movie} />
-        ))}
-      </ul>
+      {movies.data.length ? (
+        <ul>
+          {movies.data.map((movie) => (
+            <MovieRow key={movie.id} movie={movie} />
+          ))}
+        </ul>
+      ) : (
+        <div>Oops! There are no movies with this title</div>
+      )}
     </div>
   );
 }
