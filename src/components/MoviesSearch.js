@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState,  useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getMovies } from "../store/movies";
 import _ from "lodash";

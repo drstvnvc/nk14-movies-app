@@ -10,7 +10,7 @@ export default function MovieRow({ movie }) {
       }}
     >
       <div style={{ padding: "10px" }}>
-        <img src={movie.image_url} width="100" />
+        <img src={movie.image_url} width="100" alt="Movie cover" />
       </div>
       <div style={{ padding: "10px" }}>{movie.title}</div>
       <div style={{ padding: "10px" }}>{movie.director}</div>
