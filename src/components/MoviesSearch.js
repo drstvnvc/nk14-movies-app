@@ -11,28 +11,23 @@ export default function MoviesSearch() {
     setSearchTerm(event.target.value);
   }
 
-  const search = () => {
-    console.log("debounced search", { searchTerm });
+  const search = (searchTerm) => {
     if (!searchTerm || searchTerm.length > 2) {
       dispatch(getMovies(searchTerm));
     }
   };
 
-  const debouncedChange = useCallback(
-    _.debounce(handleChangeSearchTerm, 500),
-    []
-  );
+  const debouncedSearch = useCallback(_.debounce(search, 500), []);
 
   useEffect(() => {
-    console.log("use effect", searchTerm);
-    search();
+    debouncedSearch(searchTerm);
   }, [searchTerm]);
 
   return (
     <div>
       <input
         type="text"
-        onChange={debouncedChange}
+        onChange={handleChangeSearchTerm}
         placeholder="Search movies"
       />
     </div>
