@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import MovieRow from "../components/MovieRow";
 import { getMovies, selectMovies } from "../store/movies";
 
@@ -50,7 +51,9 @@ export default function AppMovies() {
           </div>
           <ul>
             {sortedMovies.map((movie) => (
-              <MovieRow key={movie.id} movie={movie} />
+              <Link to={`/movies/${movie.id}`}>
+                <MovieRow key={movie.id} movie={movie} />
+              </Link>
             ))}
           </ul>
         </div>

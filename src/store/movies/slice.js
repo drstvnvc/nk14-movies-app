@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const middlewareActions = {
   getMovies() {},
+  createMovie() {},
+  getMovie() {},
 };
 
 const moviesSlice = createSlice({
@@ -12,10 +14,14 @@ const moviesSlice = createSlice({
       current_page: 0,
       last_page: 0,
     },
+    selectedMovie: null,
   },
   reducers: {
     setMovies(state, action) {
       state.page = action.payload;
+    },
+    setMovie(state, action) {
+      state.selectedMovie = action.payload;
     },
     ...middlewareActions,
   },
@@ -23,4 +29,5 @@ const moviesSlice = createSlice({
 
 export default moviesSlice.reducer;
 
-export const { getMovies, setMovies } = moviesSlice.actions;
+export const { getMovies, setMovies, createMovie, getMovie, setMovie } =
+  moviesSlice.actions;

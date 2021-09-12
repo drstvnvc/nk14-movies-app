@@ -21,7 +21,12 @@ export default function NavBar() {
           <Link to="/movies">Movies</Link>
         </li>
         {isAuthenticated ? (
-          <button onClick={handleLogout}>Logout</button>
+          <>
+            <li>
+              <Link to="/create-movie">Create movie</Link>
+            </li>
+            <button onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <>
             <li>
